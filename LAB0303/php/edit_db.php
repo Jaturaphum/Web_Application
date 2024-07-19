@@ -8,16 +8,22 @@ $studentid = $_GET['studentid'];
 $student = null;
 $student = array_filter($students, fn($s) => $s['studentid'] === $studentid);
 
+foreach ($_SESSION['students'] as $s) {
+    if ($s['studentid'] == $studentid) {
+        $student = $s;
+        break;
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_SESSION['students'] as &$s) {
         if ($s['studentid'] == $studentid) {
-            // $s['prefix'] = $_POST['prefix'];
-            // $s['fname'] = $_POST['fname'];
-            // $s['lname'] = $_POST['lname'];
-            // $s['year'] = $_POST['year'];
-            // $s['gpa'] = $_POST['gpa'];
-            // $s['birthdate'] = $_POST['birthdate'];
-            $s = array_merge($s, $_POST);
+            $s['prefix'] = $_POST['prefix'];
+            $s['fname'] = $_POST['fname'];
+            $s['lname'] = $_POST['lname'];
+            $s['year'] = $_POST['year'];
+            $s['gpa'] = $_POST['gpa'];
+            $s['birthdate'] = $_POST['birthdate'];
             break;
         }
     }
