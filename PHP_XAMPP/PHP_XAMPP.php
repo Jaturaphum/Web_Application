@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>PHP_XAMPP</title>
 </head>
 
 <body>
@@ -136,8 +136,14 @@
     E-mail: <input type="text" name="email"><br><br>
     <input type="submit" value="Submit">
     </form>
-
-
+    <br>
+    <?php
+    session_start();
+    ?>
+    <?php
+    $_SESSION["favcolor"] = "green";
+    $_SESSION["favanimal"] = "cat";
+    echo "session varibles are set.";
+    ?>
 </body>
-
 </html>

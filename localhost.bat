@@ -1,2 +1,2 @@
 @echo on
-start http://localhost/Web_Application/
+start http://localhost/webapp/
